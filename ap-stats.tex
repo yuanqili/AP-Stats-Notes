@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,total={6in,9.5in}]{geometry}
+
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{caption}
+\DeclareCaptionFont{xipt}{\sffamily}
+\usepackage[font=xipt, labelfont=bf]{caption}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\par\singlespacing\small}
+
+\usepackage{graphicx}
+    \graphicspath{{images/}}
+
+\usepackage{tcolorbox}
+\usepackage{thmtools}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{theorem}{Theorem}%
+    {colback=white!15,colframe=black,fonttitle=\bfseries,arc=0pt,outer arc=0pt}{th}
+\newtcbtheorem[number within=section]{definition}{Definition}%
+    {colback=white!15,colframe=black,fonttitle=\bfseries,arc=0pt,outer arc=0pt}{th}
+
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{references.bib}
+
+\newcommand{\AP}{AP\textsuperscript{\small\textregistered} }
+\newcommand{\pr}{\mathop{\mathbf{Pr}}}
+\newcommand{\ev}{\mathop{\mathbf{E}}}
+\newcommand{\var}{\mathop{\mathrm{Var}}}
+
+\title{Notes for \AP Statistics Exam}
+\author{Yuanqi Li\\Humble Academy, Nanjing}
+\date{}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+% \input{misc/about.tex}
+% \input{units/01-one-variable.tex}
+% \input{units/02-two-variable.tex}
+
+\input{chapters/03-relationships.tex}
+\clearpage
+
+\input{chapters/05-probabilities.tex}
+\clearpage
+
+\input{chapters/06-rv.tex}
+\clearpage
+
+\end{document}

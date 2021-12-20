@@ -1,0 +1,129 @@
+\section{Probability Fundamentals}
+
+\paragraph{Chance process}
+A {chance process} has outcomes that we cannot predict but that nonetheless have a regular distribution in very many repetitions. \textbf{The law of large numbers} says that the proportion of times that a particular outcome occurs in many repetitions will approach a single number. This long-run relative frequency of a chance outcome is its \textbf{probability}. A probability is a number between 0 (never occurs) and 1 (always occurs).
+
+Probabilities describe only what happens in the long run. Short runs of random phenomena like tossing coins or shooting a basketball often don't look random to us because they do not show the regularity that emerges only in very many repetitions.
+
+\paragraph{Simulation}
+A {simulation} is an imitation of chance behavior, most often carried out with random numbers. To perform a simulation, follow the four-step process:
+\begin{itemize}[font=\sffamily\bfseries, leftmargin=1.95cm, style=nextline, itemsep=0cm]
+\item[State] Ask a question of interest about some chance process.
+\item[Plan] Describe how to use a chance device to imitate one repetition of the process. Tell what you will record at the end of each repetition.
+\item[Do] Perform many repetitions of the simulation.
+\item[Conclude] Use the results of your simulation to answer the question of interest.
+\end{itemize}
+
+\subsection{Basic Probability Rules}
+
+\paragraph{Sample space}
+A \textbf{probability model} describes chance behavior by listing the possible outcomes in the \textbf{sample space} $S$ and giving the probability that each outcome occurs.
+
+\paragraph{Events}
+An \textbf{event} is a subset of the possible outcomes in the sample space. To find the probability that an event $A$ happens, $\pr(A)$, we can rely on some basic probability rules:
+
+\begin{itemize}[style=nextline, itemsep=0cm]
+\item For any event $A$, $0 \leq \pr(A) \leq 1$.
+\item $\pr(S) = 1$, where $S$ is the sample space.
+\item If all outcomes in the sample space are equally likely, then
+    $$
+        \pr(A) = \dfrac{
+            \text{\# outcomes corresponding to event $A$}
+        }{
+            \text{\# outcomes in the sample space}
+        }.
+    $$
+\end{itemize}
+
+\subsection{Probability Involving Multiple Events}
+A \textbf{two-way table} or a \textbf{Venn diagram} can be used to display the sample space for a chance process. Two-way tables and Venn diagrams can also be used to find probabilities involving events $A$ and $B$. For example, event $A \cup B$ ($A$ or $B$) consists of all outcomes in event $A$, event $B$, or both. Event $A \cap B$ ($A$ and $B$) consists of all outcomes in both $A$ and $B$.
+
+\paragraph{Complement rule}
+Event $A^C$ ($A$ not happen) consists of all outcomes not in event $A$, whose probability is given by
+$$
+    \pr\left( A^C \right) = 1 - \pr(A).
+$$
+
+\paragraph{Addition rule}
+The general addition rule states that the probability of either A or B, or both, happens is
+$$
+    \pr(\text{$A$ or $B$})
+    = \pr(A \cup B)
+    = \pr(A) + \pr(B) - \pr(A \cap B).
+$$
+In the special case that $A$ and $B$ are \textit{mutually exclusive} (disjoint), i.e., they have no outcomes in common, the addition rule becomes
+$$
+    \pr(\text{$A$ or $B$})
+    = \pr(A \cup B)
+    = \pr(A) + \pr(B).
+$$
+
+\subsection{Conditional Probability}
+
+\paragraph{Conditional probability}
+If one event $B$ has happened, the chance that another event $A$ will happen is a \textbf{conditional probability}, denoted $\pr(A \mid B)$, which can be calculated by
+$$
+    \pr(A \mid B) = \dfrac{\pr(A \cap B)}{\pr(B)}.
+$$
+
+\paragraph{Multiplication rule}
+The general multiplication rule states that the probability of events $A$ and $B$ occurring together is
+$$
+    \pr(\text{$A$ and $B$})
+    = \pr(A \cap B)
+    = \pr(A) \pr(B \mid A).
+$$
+In the special case of \textit{independent} events, the multiplication rule becomes
+$$
+    \pr(\text{$A$ and $B$})
+    = \pr(A \cap B)
+    = \pr(A) \pr(B).
+$$
+
+\paragraph{The law of total probability}
+Let events $B_1, B_2, ..., B_n$ be a \textbf{partition} of the sample space, i.e., they are disjoint and their union is the entire sample space. Then
+$$
+    \pr(A) = \sum_{i=1}^{n} \pr(A \mid B_i) \pr(B_i).
+$$
+
+\paragraph{Bayes' theorem}
+Bayes' theorem gives a way of \textit{inverting} conditions:
+$$
+    \pr(A \mid B)
+    = \dfrac{\pr(B \mid A) \pr(A)}{\pr(B)},
+$$
+where
+\begin{itemize}[style=nextline, itemsep=0cm]
+\item $\pr(A \mid B)$ is the probability of event $A$ occurring given $B$ has already happened, a.k.a., the \textbf{posterior} of $A$ given $B$.
+\item $\pr(B \mid A)$ is the probability of event $B$ occurring given $A$ has already happened.
+\item $\pr(A)$ and $\pr(B)$ are the probabilities of observing $A$ and $B$ respectively without given any conditions, a.k.a., \textbf{marginal probability} or \textbf{prior probability}. They can often be found using the law of total probability.
+\end{itemize}
+
+\subsection{Mutually Exclusive Events vs. Independent Events}
+
+\paragraph{Mutually exclusive events}
+Events are \textbf{mutually exclusive} if the occurrence of one event excludes the occurrence of the other(s). Mutually exclusive events cannot happen at the same time. For example, when tossing a coin, the result can either be heads or tails but cannot be both.
+
+\paragraph{Independent events}
+Events are \textbf{independent} if the occurrence of one event does not influence (and is not influenced by) the occurrence of the other(s). For example, when tossing two coins, the result of one flip does not affect the result of the other. Formally, two events are independent iff one of the following equivalent statements holds:
+\begin{align*}
+    \pr(A \cap B) &= \pr(A) \pr(B) \\
+    \pr(A \mid B) &= \pr(A) \\
+    \pr(B \mid A) &= \pr(B) \\
+\end{align*}
+
+In a word, \textit{mutually exclusive events are not independent, and independent events are not mutually exclusive}.
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        & Mutually exclusive & Independent \\
+        \midrule
+        $\pr(A \cap B)$ & $0$ & $\pr(A) \pr(B)$ \\
+        $\pr(A \cup B)$ & $\pr(A) + \pr(B)$ & $\pr(A)+\pr(B)-\pr(A)\pr(B)$ \\
+        $\pr(A \mid B)$ & $0$ & $\pr(A)$ \\
+        $\pr\left(A \mid B^C\right)$ & $\dfrac{\pr(A)}{1-\pr(B)}$ & $\pr(A)$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
